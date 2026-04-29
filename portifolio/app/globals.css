@@ -1,0 +1,604 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 3%;
+    --foreground: 0 0% 98%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+    --muted: 0 0% 4%;
+    --muted-foreground: 0 0% 63%;
+    --accent: 0 0% 7%;
+    --accent-foreground: 0 0% 98%;
+    --border: 0 0% 15%;
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 98%;
+
+    /* Theme Color System */
+    --bg: #020617;
+    --bg-secondary: #0B1120;
+    --text-primary: #E2E8F0;
+    --text-secondary: #94A3B8;
+    --border-color: rgba(255,255,255,0.1);
+  }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 9%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 9%;
+    --border: 0 0% 90%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 9%;
+
+    /* Theme Color System - Light Mode */
+    --bg: #F8FAFC;
+    --bg-secondary: #FFFFFF;
+    --text-primary: #0F172A;
+    --text-secondary: #475569;
+    --border-color: rgba(0,0,0,0.05);
+  }
+
+  .dark {
+    --background: 0 0% 3%;
+    --foreground: 0 0% 98%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+    --muted: 0 0% 4%;
+    --muted-foreground: 0 0% 63%;
+    --accent: 0 0% 7%;
+    --accent-foreground: 0 0% 98%;
+    --border: 0 0% 15%;
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 98%;
+  }
+  
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  /* Direct theme overrides for better compatibility */
+  .light body {
+    background-color: #ffffff !important;
+    color: #1e293b !important;
+  }
+
+  .dark body {
+    background-color: #030303 !important;
+    color: #fafafa !important;
+  }
+
+  /* Light mode - Soft blue system (CLEAN & PREMIUM) */
+  .light body {
+    background-color: #F8FBFF !important;
+    color: #1E293B !important;
+  }
+
+  .light .bg-background {
+    background-color: #F8FBFF !important;
+  }
+
+  .light .bg-accent {
+    background-color: #EFF6FF !important;
+  }
+
+  .light .bg-muted {
+    background-color: #EFF6FF !important;
+  }
+
+  .light .bg-card {
+    background-color: #FFFFFF !important;
+  }
+
+  /* Typography - Soft slate (NO STRONG BLUE) */
+  .light .text-foreground {
+    color: #1E293B !important;
+  }
+
+  .light .text-muted-foreground {
+    color: #94A3B8 !important;
+  }
+
+  /* Force all white text to black in light mode */
+  .light .text-white,
+  .light .text-white\/50,
+  .light .text-white\/70,
+  .light .text-white\/80,
+  .light .text-white\/90 {
+    color: #1E293B !important;
+  }
+
+  /* Force text-foreground opacity variants to black in light mode */
+  .light .text-foreground\/50,
+  .light .text-foreground\/70,
+  .light .text-foreground\/80,
+  .light .text-foreground\/90 {
+    color: #1E293B !important;
+    opacity: 1 !important;
+  }
+
+  /* Force hero section text to be visible in light mode - HIGHER SPECIFICITY */
+  .light section h1,
+  .light section h2,
+  .light section h3,
+  .light section p,
+  .light section span,
+  .light section div {
+    color: #1E293B !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  /* Force specific text elements in light mode to be visible - HIGHER SPECIFICITY */
+  .light .text-foreground,
+  .light .text-foreground\/50,
+  .light .text-foreground\/70,
+  .light .text-foreground\/80,
+  .light .text-foreground\/90 {
+    color: #1E293B !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  /* Force ALL text in light mode to be black */
+  .light body,
+  .light body * {
+    color: #1E293B !important;
+  }
+
+  /* Force investment text to be visible in light mode */
+  .light #servicos .text-foreground,
+  .light #servicos .font-bold {
+    color: #1E293B !important;
+    opacity: 1 !important;
+  }
+
+  /* Force investment section specifically */
+  .light #servicos .text-right,
+  .light #servicos .text-xl,
+  .light #servicos .text-lg {
+    color: #1E293B !important;
+    opacity: 1 !important;
+    font-weight: bold !important;
+  }
+
+  /* Force services cards to be visible in both modes */
+  .light #servicos .glass,
+  .light #servicos .p-6,
+  .light #servicos .p-5 {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  /* Force highlighted card investment text in light mode */
+  .light #servicos .bg-primary .text-foreground,
+  .light #servicos .bg-primary .text-xl,
+  .light #servicos .bg-primary .text-lg {
+    color: #1E293B !important;
+    opacity: 1 !important;
+  }
+
+  /* Dark mode - ensure investment text is visible */
+  .dark #servicos .text-foreground,
+  .dark #servicos .font-bold,
+  .dark #servicos .text-right,
+  .dark #servicos .text-xl,
+  .dark #servicos .text-lg {
+    color: #fafafa !important;
+    opacity: 1 !important;
+  }
+
+  /* Dark mode - ensure highlighted card investment text is visible */
+  .dark #servicos .bg-primary .text-foreground,
+  .dark #servicos .bg-primary .text-xl,
+  .dark #servicos .bg-primary .text-lg {
+    color: #fafafa !important;
+    opacity: 1 !important;
+  }
+
+  /* Re-apply primary colors for text-primary class - HIGHER SPECIFICITY */
+  .light .text-primary,
+  .light .text-blue-400,
+  .light .text-blue-500,
+  .light span.text-primary,
+  .light div.text-primary {
+    color: #60A5FA !important;
+  }
+
+  /* Re-apply muted colors - HIGHER SPECIFICITY */
+  .light .text-muted-foreground,
+  .light span.text-muted-foreground,
+  .light div.text-muted-foreground {
+    color: #94A3B8 !important;
+  }
+
+  /* Force theme toggle button to be visible in light mode - HIGHEST SPECIFICITY */
+  .light header nav button,
+  .light button[aria-label="Toggle theme"],
+  .light header button {
+    opacity: 1 !important;
+    visibility: visible !important;
+    background-color: #EFF6FF !important;
+    border-color: #60A5FA !important;
+    color: #1E293B !important;
+    display: flex !important;
+  }
+
+  .light header nav button svg,
+  .light button[aria-label="Toggle theme"] svg,
+  .light header button svg {
+    stroke: #1E293B !important;
+    fill: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  /* Force all white backgrounds to appropriate colors in light mode */
+  .light .bg-white,
+  .light .bg-white\/5,
+  .light .bg-white\/10,
+  .light .bg-white\/20,
+  .light .bg-white\/30,
+  .light .bg-white\/40 {
+    background-color: #FFFFFF !important;
+  }
+
+  /* Force icons that were white to be black/dark in light mode */
+  .light .text-white svg,
+  .light .text-white\/50 svg,
+  .light .text-white\/70 svg,
+  .light .text-white\/80 svg {
+    stroke: #1E293B !important;
+    fill: none !important;
+  }
+
+  /* Primary Colors - LIGHT BLUE #60A5FA (muito claro) */
+  .light .bg-primary,
+  .light .bg-primary\/5,
+  .light .bg-primary\/10,
+  .light .bg-primary\/20 {
+    background-color: #60A5FA !important;
+  }
+
+  .light .text-primary,
+  .light .text-blue-400,
+  .light .text-blue-500 {
+    color: #60A5FA !important;
+  }
+
+  /* Borders - Light blue tint */
+  .light .border-white\/5,
+  .light .border-white\/10,
+  .light .border-white\/20 {
+    border-color: rgba(96, 165, 250, 0.08) !important;
+    border-width: 1px !important;
+  }
+
+  .light .border-primary\/20 {
+    border-color: rgba(96, 165, 250, 0.2) !important;
+  }
+
+  /* Cards - White with light blue border and shadow */
+  .light .bg-white\/\[0\.02\],
+  .light .bg-white\/\[0\.04\] {
+    background-color: #FFFFFF !important;
+    border: 1px solid rgba(96, 165, 250, 0.08) !important;
+    box-shadow: 0 10px 25px rgba(96, 165, 250, 0.08) !important;
+  }
+
+  .light .bg-white\/\[0\.02\]:hover,
+  .light .bg-white\/\[0\.04\]:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 15px 35px rgba(96, 165, 250, 0.12) !important;
+  }
+
+  /* Icon backgrounds - LIGHT BLUE #EFF6FF */
+  .light .bg-primary\/10,
+  .light .bg-primary\/20 {
+    background-color: #EFF6FF !important;
+    opacity: 1 !important;
+  }
+
+  .light .bg-primary\/10:hover,
+  .light .bg-primary\/20:hover {
+    background-color: #DBEAFE !important;
+  }
+
+  /* Glass effect for light mode */
+  .light .glass {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    border: 1px solid rgba(96, 165, 250, 0.08) !important;
+    box-shadow: 0 10px 25px rgba(96, 165, 250, 0.08) !important;
+  }
+
+  .light .glass-dark {
+    background-color: #FFFFFF !important;
+    border: 1px solid rgba(96, 165, 250, 0.08) !important;
+    box-shadow: 0 10px 25px rgba(96, 165, 250, 0.08) !important;
+  }
+
+  /* Gradients - Premium */
+  .light .bg-gradient-to-b {
+    background: linear-gradient(to bottom, #F8FBFF, #EFF6FF) !important;
+  }
+
+  .light .bg-gradient-to-r {
+    background: linear-gradient(to right, #60A5FA, #7C3AED, #EC4899) !important;
+  }
+
+  .light .bg-gradient-to-br {
+    background: linear-gradient(to bottom right, #F8FBFF, #EFF6FF) !important;
+  }
+
+  /* Text gradient */
+  .light .text-gradient {
+    background: linear-gradient(to right, #60A5FA, #7C3AED, #EC4899) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    text-fill-color: transparent !important;
+  }
+
+  /* Status colors */
+  .light .text-emerald-300,
+  .light .text-emerald-400 {
+    color: #22C55E !important;
+  }
+
+  .light .bg-emerald-500\/10 {
+    background-color: #E6FBEF !important;
+  }
+
+  .light .bg-emerald-500\/20 {
+    background-color: #E6FBEF !important;
+    border-color: #22C55E !important;
+  }
+
+  .light .text-purple-500 {
+    color: #7C3AED !important;
+  }
+
+  .light .text-pink-500 {
+    color: #EC4899 !important;
+  }
+
+  .light .text-cyan-400 {
+    color: #0891B2 !important;
+  }
+
+  /* Navigation dots */
+  .light .bg-white\/20,
+  .light .bg-white\/40 {
+    background-color: #94A3B8 !important;
+  }
+
+  .light .bg-white\/20:hover,
+  .light .bg-white\/40:hover {
+    background-color: #3B82F6 !important;
+  }
+
+  /* "Só 2 vagas" badge - Premium amber */
+  .light .text-amber-300,
+  .light .text-amber-400 {
+    color: #D97706 !important;
+  }
+
+  .light .bg-amber-500\/20,
+  .light .bg-amber-500\/30 {
+    background-color: #FEF3C7 !important;
+    border-color: #F59E0B !important;
+  }
+
+  /* Button shadows - SOFT BLUE */
+  .light button[class*="bg-primary"],
+  .light .bg-primary {
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.25) !important;
+  }
+
+  .light button[class*="bg-primary"]:hover,
+  .light .bg-primary:hover {
+    box-shadow: 0 15px 35px rgba(59, 130, 246, 0.35) !important;
+  }
+
+  /* Secondary buttons - Soft blue tinted */
+  .light button[class*="bg-white\/5"] {
+    background-color: #EFF6FF !important;
+    border-color: rgba(59, 130, 246, 0.2) !important;
+  }
+
+  .light button[class*="bg-white\/5"]:hover {
+    background-color: #DBEAFE !important;
+  }
+
+  /* Dark/gray backgrounds - Replace with soft blue tinted */
+  .light .bg-white\/5,
+  .light .bg-white\/10 {
+    background-color: #EFF6FF !important;
+  }
+
+  .light .bg-black\/20 {
+    background-color: #EFF6FF !important;
+  }
+
+  /* Transparent backgrounds */
+  .light .bg-transparent {
+    background-color: #FFFFFF !important;
+  }
+
+  /* Glow effects - Soft blue */
+  .light .shadow-lg,
+  .light .shadow-primary\/50 {
+    box-shadow: 0 10px 40px rgba(59, 130, 246, 0.15) !important;
+  }
+
+  /* Icons in light mode - Outline only (same as dark mode) */
+  .light svg {
+    stroke: #60A5FA !important;
+    fill: none !important;
+  }
+
+  /* Override for icons inside text-primary containers */
+  .light .text-primary svg {
+    stroke: #60A5FA !important;
+    fill: none !important;
+  }
+
+  /* Override for icons with specific stroke colors - force to light blue outline */
+  .light svg[stroke] {
+    stroke: #60A5FA !important;
+  }
+
+  /* Fix theme toggle button visibility in light mode */
+  .light button svg {
+    stroke: #1E293B !important;
+    fill: none !important;
+  }
+
+  .light button.text-primary svg {
+    stroke: #60A5FA !important;
+    fill: none !important;
+  }
+
+  /* Ensure icon containers are visible in light mode */
+  .light #sobre .rounded-xl {
+    opacity: 1 !important;
+    display: flex !important;
+  }
+
+  /* Force entire about section to be visible in light mode */
+  .light #sobre {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .light #sobre * {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  /* Fix numbers visibility in light mode - Soft slate */
+  .light #sobre .text-foreground\/50,
+  .light #sobre .text-foreground\/70 {
+    color: #94A3B8 !important;
+    opacity: 1 !important;
+  }
+
+  .light #sobre .text-foreground\/50:hover,
+  .light #sobre .text-foreground\/70:hover {
+    color: #3B82F6 !important;
+  }
+
+  /* Remove low contrast opacity */
+  .light .text-white\/50,
+  .light .text-white\/70,
+  .light .text-white\/80 {
+    opacity: 1 !important;
+  }
+
+  .light .bg-white\/5,
+  .light .bg-white\/10 {
+    opacity: 1 !important;
+  }
+
+  /* Hide animated background circles in light mode */
+  .light .bg-primary\/20,
+  .light .bg-purple-500\/20 {
+    opacity: 0 !important;
+  }
+
+  /* Hide all blur circles in light mode - REMOVE VISUAL NOISE */
+  .light .blur-3xl.rounded-full {
+    opacity: 0 !important;
+  }
+
+  .light .bg-primary\/5,
+  .light .bg-primary\/10,
+  .light .bg-blue-500\/10 {
+    opacity: 0 !important;
+  }
+
+  /* Particle effects - disabled in light mode */
+  .light canvas {
+    opacity: 0 !important;
+  }
+  
+  /* Add bottom padding for mobile bottom nav */
+  @media (max-width: 768px) {
+    body {
+      padding-bottom: 80px;
+    }
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-purple-500 to-pink-500;
+  }
+  
+  .text-gradient-blue {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-400 to-primary;
+  }
+  
+  .glass {
+    @apply bg-white/10 backdrop-blur-lg border border-white/20;
+  }
+  
+  .glass-dark {
+    @apply bg-black/20 backdrop-blur-lg border border-white/10;
+  }
+  
+  .glow-primary {
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.5), 0 0 40px rgba(99, 102, 241, 0.3);
+  }
+  
+  .glow-green {
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.5), 0 0 40px rgba(34, 197, 94, 0.3);
+  }
+  
+  .glow-purple {
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.5), 0 0 40px rgba(168, 85, 247, 0.3);
+  }
+  
+  .gradient-border {
+    position: relative;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(168, 85, 247, 0.1));
+    border-radius: 1rem;
+  }
+  
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, #6366f1, #a855f7, #ec4899, #6366f1);
+    background-size: 400% 400%;
+    border-radius: 1rem;
+    z-index: -1;
+    animation: gradient-border 3s ease infinite;
+  }
+  
+  @keyframes gradient-border {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+}
