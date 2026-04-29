@@ -12,7 +12,6 @@ const servicos = [
     titulo: "Landing Page de Alta Conversão",
     descricao: "Foco total em conversão",
     resultado: "Até 3x mais leads qualificados",
-    investimento: "A partir de R$ 3.500",
     destaque: false,
     entrega: "7-10 dias úteis",
     features: [
@@ -29,7 +28,6 @@ const servicos = [
     titulo: "Site Institucional Premium",
     descricao: "Posiciona sua marca como autoridade",
     resultado: "Mais autoridade = mais vendas",
-    investimento: "A partir de R$ 6.000",
     destaque: true,
     entrega: "15-20 dias úteis",
     features: [
@@ -46,7 +44,6 @@ const servicos = [
     titulo: "Sistema Web & E-commerce",
     descricao: "Automação que escala seu negócio",
     resultado: "Reduz custos operacionais",
-    investimento: "A partir de R$ 12.000",
     destaque: false,
     entrega: "30-45 dias úteis",
     features: [
@@ -176,16 +173,6 @@ export function Services() {
                         : "bg-slate-50 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-700"
                     }`}>
                       <servico.icone className={`w-8 h-8 opacity-80 ${servico.destaque ? "text-white/90" : "text-slate-600 dark:text-slate-400"}`} />
-                    </div>
-
-                    {/* Investment */}
-                    <div className="mb-5">
-                      <div className={`text-2xl font-bold ${servico.destaque ? "text-white" : "text-gray-900 dark:text-white"}`}>
-                        {servico.investimento}
-                      </div>
-                      <div className={`text-xs uppercase tracking-wider ${servico.destaque ? "text-white/70" : "text-gray-500 dark:text-gray-400"}`}>
-                        Investimento inicial
-                      </div>
                     </div>
 
                     {/* Title */}
